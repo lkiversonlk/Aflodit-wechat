@@ -1,6 +1,5 @@
 node_modules
 .idea
 
-configs/config.json
+configs/config.yaml
 
-config.yaml
