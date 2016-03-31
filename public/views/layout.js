@@ -13,15 +13,14 @@ var Node = React.createClass({
                     <title>
                         {this.props.title}
                     </title>
-                    <script src="/lib/react/react.min.js"></script>
-                    <script src="/lib/react/react-dom.min.js"></script>
-                    <script src="/lib/jquery/dist/jquery.min.js"></script>
-                    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
                     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css"></link>
                     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css"></link>
+                    <script src="/lib/jquery/dist/jquery.min.js"></script>
+                    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
                 </head>
                 <body>
                     {this.props.children}
+
                 </body>
             </html>
         );

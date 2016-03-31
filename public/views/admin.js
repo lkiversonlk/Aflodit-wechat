@@ -5,7 +5,9 @@ var Node = React.createClass({
     render: function () {
         return (
             <Layout title={this.props.title}>
-
+                <div id="main" class="container">
+                </div>
+                <script src="/dist/bundle.js" />
             </Layout>
         )
     }
