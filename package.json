@@ -11,9 +11,14 @@
     "crypto": "0.0.3",
     "debug": "~2.2.0",
     "express": "~4.13.1",
+    "express-session": "^1.13.0",
     "jade": "~1.11.0",
+    "js-yaml": "^3.5.5",
+    "jsen": "^0.6.1",
+    "mongoose": "^4.4.10",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
-    "wechat": "^2.0.3"
+    "wechat-oauth": "^1.1.1",
+    "winston": "^2.2.0"
   }
 }

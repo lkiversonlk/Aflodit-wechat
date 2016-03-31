@@ -1,0 +1,7 @@
+app:
+   id: wx9e45a7897c3295e6
+   secret: 7e7df5ab6f4a29d5bf32d4d1613ada17
+database:
+   url: localhost/aflodit
+file:
+   image:
