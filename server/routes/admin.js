@@ -12,7 +12,7 @@ var imageDao = require("../dao/imageDao");
 router.get('/', function(req, res, next) {
     res.render('admin',
         {
-            title: '管理页面'
+            title: '情报审核'
         }
     );
 });

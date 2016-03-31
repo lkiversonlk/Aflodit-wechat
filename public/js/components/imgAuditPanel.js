@@ -3,6 +3,10 @@ var ImagePad = require("./imagePad");
 
 var auditOptions = [
     {
+        label : "图片尺寸错误 (横向)",
+        level : 1
+    },
+    {
         label : "正常",
         level : 2
     },
