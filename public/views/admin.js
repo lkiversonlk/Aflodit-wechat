@@ -7,7 +7,7 @@ var Node = React.createClass({
             <Layout title={this.props.title}>
                 <div id="main" class="container">
                 </div>
-                <script src="/dist/bundle.js" />
+                <script src="/dist/admin.js" />
             </Layout>
         )
     }

@@ -19,8 +19,9 @@ var Node = React.createClass({
                     <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
                 </head>
                 <body>
-                    {this.props.children}
-
+                    <div class="container">
+                        {this.props.children}
+                    </div>
                 </body>
             </html>
         );

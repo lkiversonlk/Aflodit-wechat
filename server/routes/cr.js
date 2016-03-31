@@ -62,8 +62,16 @@ Object.keys(models).forEach(function(model){
 
 var pictureRestify = new restify("pic");
 pictureRestify.registerSearchById(function(req, res, next){
-
+    var id = req.params.id;
+    req.app.get("picStream").picturePath(id, function(error, path){
+        if(error){
+            return next(error);
+        }else{
+            return res.sendFile(path);
+        }
+    });
 });
+
 pictureRestify.serve(router);
 
 module.exports = router;
