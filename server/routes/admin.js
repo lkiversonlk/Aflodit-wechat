@@ -5,7 +5,9 @@ var express = require('express');
 var router = express.Router();
 var openId = require("../middlewares/openId");
 
-var imageDao = require("../dao/imageDao");
+var Dao = require("../dao");
+
+var dao = new Dao();
 
 //router.use(openId);
 
@@ -17,8 +19,8 @@ router.get('/', function(req, res, next) {
     );
 });
 
-router.get("/random", function(req, res, next){
-    imageDao.nextImage(function(err, image){
+router.get("/unaudit", function(req, res, next){
+    dao.nextUnAuditImage(function(err, image){
         if(err){
             return next(err);
         }else{
@@ -26,6 +28,19 @@ router.get("/random", function(req, res, next){
             return next();
         }
     });
+});
+
+router.post("/image/:id", function(req, res, next){
+    req.result = "OK";
+    dao.update("image", {file_id : req.params.id}, {status : req.body.level}, function(err, result){
+        if(err){
+            return next(err);
+        }else{
+            req.result = result;
+            return next();
+        }
+    });
+
 });
 
 module.exports = router;

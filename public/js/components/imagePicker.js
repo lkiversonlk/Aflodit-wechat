@@ -1,9 +1,9 @@
-function RandomImagePicker(){
+function AuditImagePicker(){
 
 };
 
-RandomImagePicker.prototype.getImageId = function(callback){
-    this.request = $.get("/admin/random", function(result){
+AuditImagePicker.prototype.getImageId = function(callback){
+    this.request = $.get("/admin/unaudit", function(result){
         if(result.code == 0){
             return callback(null, result.data);
         }else{
@@ -12,8 +12,20 @@ RandomImagePicker.prototype.getImageId = function(callback){
     });
 };
 
-RandomImagePicker.prototype.getImagePath = function(imageId){
+AuditImagePicker.prototype.getImagePath = function(imageId){
     return "/cr/pic/" + imageId;
 };
 
-module.exports = RandomImagePicker;
+AuditImagePicker.prototype.judgeImage = function(imageId, level, callback){
+    $.post(
+        "/admin/image/" + imageId,
+        {
+            level : level
+        },
+        function(data){
+            callback(null, data);
+        }
+    );
+}
+
+module.exports = AuditImagePicker;

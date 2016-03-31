@@ -48,7 +48,14 @@ var Node = React.createClass({
 
     setImageLevel : function(level){
         //post image level
-        this.getImage();
+        var self = this;
+        self.props.imagePicker.judgeImage(self.state.imageId, level, function(err, result){
+            if(err){
+                alert("评价失败");
+            }
+            self.getImage();
+        });
+
     },
 
     deny : function(){

@@ -3,7 +3,7 @@
  */
 
 var mongoose = require("mongoose");
-var image = require("../models").image;
+
 
 function ImageDao(){
 
@@ -14,14 +14,11 @@ function ImageDao(){
  * @param callback
  */
 ImageDao.prototype.nextImage = function(callback){
-    image.count().exec(function(err, count){
-        if(err){
-            return callback(err);
-        }else{
-            var random = Math.floor(Math.random() * count);
-            return image.findOne().skip(random).exec(callback);
+    image.findOne(
+        {
+            status : 0
         }
-    })
+    ).select("file_id").exec(callback);
 };
 
 module.exports = new ImageDao();
