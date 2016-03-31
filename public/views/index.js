@@ -5,7 +5,9 @@ var Node = React.createClass({
     render: function () {
         return (
             <Layout title={this.props.title}>
-                <div>Hello {this.props.name}</div>
+                <div id="main">
+                </div>
+                <script src="/dist/index.js"></script>
             </Layout>
         );
     }

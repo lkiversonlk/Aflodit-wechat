@@ -1,6 +1,5 @@
 var React = require("react");
 
-
 var Node = React.createClass({
     render: function () {
         return (
@@ -13,14 +12,15 @@ var Node = React.createClass({
                     <title>
                         {this.props.title}
                     </title>
-                    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css"></link>
-                    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css"></link>
+                    <link rel="stylesheet" href="/css/weui.min.css" />
+                    <link rel="stylesheet" href="/css/jquery-weui.css" />
                     <script src="/lib/jquery/dist/jquery.min.js"></script>
-                    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+                    <script src="/js/jquery-weui.js" />
                 </head>
                 <body>
-                    {this.props.children}
-
+                    <div class="container">
+                        {this.props.children}
+                    </div>
                 </body>
             </html>
         );

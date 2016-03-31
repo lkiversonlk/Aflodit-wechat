@@ -7,8 +7,7 @@ var openId = require("../middlewares/openId");
 router.get('/', function(req, res, next) {
   res.render('index',
       {
-        title : "express react",
-        name: 'Express'
+        title : "=Beauty情报="
       }
   );
 });
