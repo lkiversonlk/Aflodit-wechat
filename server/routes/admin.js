@@ -6,7 +6,6 @@ var router = express.Router();
 var openId = require("../middlewares/openId");
 
 var Dao = require("../dao");
-
 var dao = new Dao();
 
 //router.use(openId);

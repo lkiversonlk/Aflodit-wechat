@@ -19,6 +19,17 @@ Dao.prototype.nextUnAuditImage = function(callback){
 
 Dao.prototype.update = function(model, query, update, callback){
     models[model].update(query, update, callback);
+};
+
+Dao.prototype.nextRandomImage = function(callback){
+    models.image.count().exec(function(err, count){
+        if(err){
+            return callback(err);
+        }else{
+            var random = Math.floor(Math.random() * count);
+            return models.image.findOne().skip(random).select("file_id").exec(callback);
+        }
+    })
 }
 
 module.exports = Dao;

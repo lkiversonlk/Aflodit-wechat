@@ -5,53 +5,28 @@
 var React = require("react");
 var ReactDom = require("react-dom");
 
-var ImagePad = require("./components/imagePad");
+var ImgViewPanel = require("./components/imgViewPanel");
+var ImagePicker = require("./components/viewImagePicker");
 
-var IndexPage = React.createClass({
-
-    getImage : function(){
-        var self = this;
-        self.request = $.get("/admin/random", function(result){
-            if(result.code == 0){
-                self.setState({
-                    imageId : result.data
-                });
-            }
-        });
-    },
-
-    imgPath : function(){
-        return "/cr/pic/" + this.state.imageId;
-    },
-
-    approve : function(level){
-
-    },
-
-    deny : function(){
-        //send deny
-        this.getImage();
-    },
-
-    getInitialState : function(){
-        return {imageId : "test"};
-    },
-
-    componentDidMount : function(){
-        this.getImage();
-    },
-
-    render : function(){
-        return (
-            <div className="row">
-                <ImagePad className="col-md-12" image={this.imgPath()} deny={this.deny}></ImagePad>,
-            </div>
-        );
-    }
-});
+var picker = new ImagePicker();
 
 ReactDom.render(
-    <IndexPage />
+    <div>
+        <div className="row">
+            <div className="col-md-6 col-xs-6" style={{padding : 0}}>
+                <ImgViewPanel imagePicker={picker}></ImgViewPanel>
+            </div>
+            <div className="col-md-6 col-xs-6" style={{padding : 0}}>
+                <ImgViewPanel imagePicker={picker}></ImgViewPanel>
+            </div>
+            <div className="col-md-6 col-xs-6" style={{padding : 0}}>
+                <ImgViewPanel imagePicker={picker}></ImgViewPanel>
+            </div>
+            <div className="col-md-6 col-xs-6" style={{padding : 0}}>
+                <ImgViewPanel imagePicker={picker}></ImgViewPanel>
+            </div>
+        </div>
+    </div>
     ,
     document.getElementById("main")
 );

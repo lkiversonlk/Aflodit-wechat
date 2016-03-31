@@ -14,6 +14,7 @@ var Node = React.createClass({
                     </title>
                     <link rel="stylesheet" href="/css/weui.min.css" />
                     <link rel="stylesheet" href="/css/jquery-weui.css" />
+                    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
                     <script src="/lib/jquery/dist/jquery.min.js"></script>
                     <script src="/js/jquery-weui.js" />
                 </head>

@@ -1,32 +1,8 @@
+/**
+ * Created by jerry on 3/31/16.
+ */
 var React = require("react");
 var ImagePad = require("./imagePad");
-
-var auditOptions = [
-    {
-        label : "正常",
-        level : 2
-    },
-    {
-        label : "比较暴露 (用物品遮挡)",
-        level : 3
-    },
-    {
-        label : "暴露 (无衣物,有遮挡)",
-        level : 4
-    },
-    {
-        label : "非常暴露 (无衣物,背面)",
-        level : 5
-    },
-    {
-        label : "完全暴露 (无衣物,正面)",
-        level : 6
-    },
-    {
-        label : "图片尺寸错误 (横向)",
-        level : 1
-    }
-];
 
 var Node = React.createClass({
     getImage : function(){
@@ -60,11 +36,6 @@ var Node = React.createClass({
 
     },
 
-    deny : function(){
-        //send deny
-        this.getImage();
-    },
-
     getInitialState : function(){
         return {imageId : null};
     },
@@ -75,13 +46,7 @@ var Node = React.createClass({
 
     imageClick : function(){
         var self = this;
-        var actions = auditOptions.map(function(auditOption){
-            return {
-                text : auditOption.label,
-                onClick : self.setImageLevel.bind(self, auditOption.level)
-            }
-        });
-        $.actions({actions : actions});
+        self.getImage();
     },
 
     render : function(){
