@@ -1,0 +1,23 @@
+{
+  "name": "Aflodit-wechat",
+  "description": "",
+  "main": "",
+  "authors": [
+    "kan.liu <kan.liu@ipinyou.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/lkiversonlk/Aflodit-wechat",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.14.8"
+  }
+}
