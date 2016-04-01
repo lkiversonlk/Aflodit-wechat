@@ -49,7 +49,7 @@ router.post("/audit/image/:id", function(req, res, next){
  */
 router.get("/audit", function(req, res, next){
     return res.render("admin-audit", {
-        title : "=审核="
+        title : "=情报审核="
     });
 });
 
