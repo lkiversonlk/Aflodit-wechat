@@ -20,7 +20,7 @@ reactDOM.render(
                 图片审核
             </p>
         </a>
-        <a href="/admin/message" className="weui_grid js_grid" data-id="audit">
+        <a href="/admin/help" className="weui_grid js_grid" data-id="audit">
             <div className="weui_grid_icon">
                 <img src="/images/icon_nav_dialog.png"/>
             </div>
