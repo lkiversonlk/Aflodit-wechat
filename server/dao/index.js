@@ -10,11 +10,18 @@ function Dao(){
 }
 
 Dao.prototype.nextUnAuditImage = function(callback){
-    models.image.findOne(
+    models.image.count(
         {
             status : 0
         }
-    ).select("file_id").exec(callback);
+    ).exec(function(err, count){
+        if(err){
+            return callback(err);
+        }else{
+            var random = Math.floor(Math.random() * count);
+            return models.image.findOne({status : 0}).skip(random).select("file_id").exec(callback);
+        }
+    })
 };
 
 Dao.prototype.update = function(model, query, update, callback){
