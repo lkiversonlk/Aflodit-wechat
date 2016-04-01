@@ -5,8 +5,8 @@ var Node = React.createClass({
         return (
             <html>
                 <head>
-                    <meta charset="UTF-8" />
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                    <meta charSet="UTF-8" />
+                    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                     <meta name="viewport" content="initial-scale=1" />
                     <meta name="app-mobile-web-app-capable" content="yes" />
                     <title>
@@ -19,7 +19,7 @@ var Node = React.createClass({
                     <script src="/js/jquery-weui.js" />
                 </head>
                 <body>
-                    <div class="container">
+                    <div className="container">
                         {this.props.children}
                     </div>
                 </body>

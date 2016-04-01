@@ -15,7 +15,7 @@ var Node = React.createClass({
         }
         return (
             <div className={this.props.class} >
-                <img style={{ width : "100%"}} src={this.props.image} onClick={this.props.imageClick} />
+                <img style={{ width : "100%"}} src={this.props.image} onClick={this.props.imageClick} onLoad={this.props.onLoad}/>
             </div>
         );
     }

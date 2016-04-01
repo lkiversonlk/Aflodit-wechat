@@ -30,10 +30,13 @@ var auditOptions = [
 
 var Node = React.createClass({
     getImage : function(){
+        $.showLoading("获取情报中...");
+
         var self = this;
         self.props.imagePicker.getImageId(function(err, result){
             if(err){
                 alert("网络错误");
+                $.hideLoading();
             }else{
                 self.setState({
                     imageId : result
@@ -49,13 +52,13 @@ var Node = React.createClass({
     setImageLevel : function(level){
         //post image level
         var self = this;
-        $.showLoading("评价中..拉取下一张图");
+
         self.props.imagePicker.judgeImage(self.state.imageId, level, function(err, result){
             if(err){
                 alert("评价失败");
             }
             self.getImage();
-            $.hideLoading();
+
         });
 
     },
@@ -84,9 +87,13 @@ var Node = React.createClass({
         $.actions({actions : actions});
     },
 
+    imageOnLoad : function(){
+        $.hideLoading();
+    },
+
     render : function(){
         return (
-            <ImagePad image={this.imgPath()} imageClick={this.imageClick}></ImagePad>
+            <ImagePad image={this.imgPath()} imageClick={this.imageClick} onLoad={this.imageOnLoad}></ImagePad>
         );
     }
 });
