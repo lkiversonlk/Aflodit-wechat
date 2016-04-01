@@ -36,13 +36,15 @@ try{
 
 // view engine setup
 app.set('views', path.join(__dirname, 'public', 'views'));
-app.set('view engine', "js");
+app.set('view engine', "jade");
+/*
 app.engine('js', require("express-react-views").createEngine({
     beautify : true,
     babel : {
         presets : ['react', 'es2015']
     }
 }));
+*/
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

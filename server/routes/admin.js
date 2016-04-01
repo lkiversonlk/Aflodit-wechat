@@ -53,4 +53,10 @@ router.get("/audit", function(req, res, next){
     });
 });
 
+router.get("/help", function(req, res){
+    return res.render("admin-help", {
+       title : "=资讯大厅="
+    });
+});
+
 module.exports = router;

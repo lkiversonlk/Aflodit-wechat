@@ -5,11 +5,11 @@ var Node = React.createClass({
     render: function () {
         return (
             <Layout title={this.props.title}>
-                <div id="main" class="container">
+                <div id="main" className="container">
                 </div>
                 <script src="/dist/admin-audit.js" />
             </Layout>
-        )
+        );
     }
 });
 
