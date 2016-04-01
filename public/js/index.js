@@ -12,19 +12,8 @@ var ImagePicker = require("./components/viewImagePicker");
 
 ReactDom.render(
     <div>
-        <div className="row">
-            <div className="col-md-6 col-xs-6" style={{padding : 0}}>
-                <ImgViewPanel imagePicker={new ImagePicker()}></ImgViewPanel>
-            </div>
-            <div className="col-md-6 col-xs-6" style={{padding : 0}}>
-                <ImgViewPanel imagePicker={new ImagePicker()}></ImgViewPanel>
-            </div>
-        </div>
-        <div className="row">
-            <div className="col-md-6 col-xs-6" style={{padding : 0}}>
-                <ImgViewPanel imagePicker={new ImagePicker()}></ImgViewPanel>
-            </div>
-            <div className="col-md-6 col-xs-6" style={{padding : 0}}>
+        <div className="weui-row">
+            <div className="weui-col-100" >
                 <ImgViewPanel imagePicker={new ImagePicker()}></ImgViewPanel>
             </div>
         </div>

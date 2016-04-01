@@ -13,7 +13,7 @@ var dao = new Dao();
 router.get('/', function(req, res, next) {
     res.render('admin',
         {
-            title: '情报审核'
+            title: '=个人面板='
         }
     );
 });
@@ -29,8 +29,10 @@ router.get("/unaudit", function(req, res, next){
     });
 });
 
-router.post("/image/:id", function(req, res, next){
-    req.result = "OK";
+/**
+ * 审核图片接口
+ */
+router.post("/audit/image/:id", function(req, res, next){
     dao.update("image", {file_id : req.params.id}, {status : req.body.level}, function(err, result){
         if(err){
             return next(err);
@@ -40,6 +42,15 @@ router.post("/image/:id", function(req, res, next){
         }
     });
 
+});
+
+/**
+ * 审核图片界面
+ */
+router.get("/audit", function(req, res, next){
+    return res.render("admin-audit", {
+        title : "=审核="
+    });
 });
 
 module.exports = router;
