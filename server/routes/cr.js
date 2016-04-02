@@ -67,7 +67,12 @@ pictureRestify.registerSearchById(function(req, res, next){
         if(error){
             return next(error);
         }else{
-            return res.sendFile(path);
+            return res.sendFile(path, function(error){
+                if(error){
+                    logger.log("error", "image with id " + id + " has error " + error.message);
+                    return res.status(404).end();
+                }
+            });
         }
     });
 });

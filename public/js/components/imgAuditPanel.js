@@ -91,9 +91,14 @@ var Node = React.createClass({
         $.hideLoading();
     },
 
+    imageOnError : function(){
+        $.hideLoading();
+        this.getImage();
+    },
+
     render : function(){
         return (
-            <ImagePad image={this.imgPath()} imageClick={this.imageClick} onLoad={this.imageOnLoad}></ImagePad>
+            <ImagePad image={this.imgPath()} imageClick={this.imageClick} onLoad={this.imageOnLoad} onError={this.imageOnError}></ImagePad>
         );
     }
 });
