@@ -26,6 +26,6 @@ Picker.prototype.judgeImage = function(imageId, level, callback){
             callback(null, data);
         }
     );
-}
+};
 
 module.exports = Picker;

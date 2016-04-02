@@ -14,6 +14,7 @@ var routes = require('./server/routes/index');
 var wechat = require("./server/routes/wechat");
 var cr = require("./server/routes/cr");
 var admin = require("./server/routes/admin");
+var stat = require("./server/routes/stat");
 
 var SsiErros = require("./server/errors");
 var logger = require("./server/log").getLogger("app");
@@ -61,6 +62,7 @@ app.use('/', routes);
 app.use("/admin", admin);
 app.use("/cr", cr);
 app.use('/wechat', wechat);
+app.use("/stat", stat);
 
 app.use(present.present);
 app.use(present.presentError);

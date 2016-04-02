@@ -45,7 +45,25 @@ var Node = React.createClass({
     },
 
     imageClick : function(){
+        //var self = this;
+        //self.getImage();
+    },
+
+    imageLoad : function(){
+        this.imageLoadTime = Date.now();
+    },
+
+    buttonClick : function(prefer){
+        //alert("bad");
         var self = this;
+        if(self.state.imageId != "0000"){
+            var stay = Date.now() - self.imageLoadTime;
+            $.post(
+                "/stat/image/" + self.state.imageId
+                , {prefer : prefer, stay : stay}
+                , function (){}
+            );
+        }
         self.getImage();
     },
 
@@ -53,10 +71,10 @@ var Node = React.createClass({
         return (
             <div className="weui_tab">
                 <div className="weui_tab_bd">
-                    <ImagePad image={this.imgPath()} imageClick={this.imageClick}></ImagePad>
+                    <ImagePad image={this.imgPath()} imageClick={this.imageClick} onLoad={this.imageLoad}></ImagePad>
                 </div>
                 <div className="weui_tabbar">
-                    <a className="weui_tabbar_item">
+                    <a className="weui_tabbar_item" onClick={this.buttonClick.bind(this, 0)}>
                         <div className="weui_tabbar_icon">
                             <img src="/images/icon_nav_noti.png" />
                         </div>
@@ -64,7 +82,7 @@ var Node = React.createClass({
                             差劲
                         </p>
                     </a>
-                    <a className="weui_tabbar_item">
+                    <a className="weui_tabbar_item" onClick={this.buttonClick.bind(this, 0)}>
                         <div className="weui_tabbar_icon">
                             <img src="/images/icon_nav_button.png" />
                         </div>
@@ -72,7 +90,7 @@ var Node = React.createClass({
                             一般
                         </p>
                     </a>
-                    <a className="weui_tabbar_item">
+                    <a className="weui_tabbar_item" onClick={this.buttonClick.bind(this, 0)}>
                         <div className="weui_tabbar_icon">
                             <img src="/images/icon_nav_msg.png" />
                         </div>
