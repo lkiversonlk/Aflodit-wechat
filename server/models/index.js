@@ -4,8 +4,10 @@
 
 var image = require("./image");
 var user = require("./user");
+var comment = require("./comment");
 
 module.exports = {
     user : user,
-    image : image
+    image : image,
+    comment : comment
 };

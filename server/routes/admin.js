@@ -59,4 +59,23 @@ router.get("/help", function(req, res){
     });
 });
 
+router.post("/help", function(req, res, next){
+    var comment = req.body.comment;
+    dao.create(
+        "comment",
+        {
+            user : "unknown",
+            comment : comment,
+            time : Date.now()
+        },
+        function(error, result){
+            if(error){
+                return next(error);
+            }else{
+                res.redirect("/admin");
+            }
+        }
+    );
+});
+
 module.exports = router;

@@ -24,6 +24,10 @@ Dao.prototype.nextUnAuditImage = function(callback){
     })
 };
 
+Dao.prototype.create = function (model, data, callback) {
+    new models[model](data).save(callback);
+};
+
 Dao.prototype.update = function(model, query, update, callback){
     models[model].update(query, update, callback);
 };
@@ -49,6 +53,6 @@ Dao.prototype.nextRandomImage = function(callback){
             ).skip(random).select("file_id").exec(callback);
         }
     })
-}
+};
 
 module.exports = Dao;
