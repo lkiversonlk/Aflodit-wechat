@@ -6,6 +6,8 @@ var ImagePad = require("./imagePad");
 
 var Node = React.createClass({
     getImage : function(){
+        $.showLoading("搜寻情报中...");
+
         var self = this;
         self.props.imagePicker.getImageId(function(err, result){
             if(err){
@@ -50,7 +52,13 @@ var Node = React.createClass({
     },
 
     imageLoad : function(){
+        $.hideLoading();
         this.imageLoadTime = Date.now();
+    },
+
+    imageError : function(){
+        $.hideLoading();
+        this.getImage();
     },
 
     buttonClick : function(prefer){
@@ -60,7 +68,7 @@ var Node = React.createClass({
             var stay = Date.now() - self.imageLoadTime;
             $.post(
                 "/stat/image/" + self.state.imageId
-                , {prefer : prefer, stay : stay}
+                , {prefer : prefer, stay : stay, type : "view"}
                 , function (){}
             );
         }
@@ -71,7 +79,7 @@ var Node = React.createClass({
         return (
             <div className="weui_tab">
                 <div className="weui_tab_bd">
-                    <ImagePad image={this.imgPath()} imageClick={this.imageClick} onLoad={this.imageLoad}></ImagePad>
+                    <ImagePad image={this.imgPath()} imageClick={this.imageClick} onLoad={this.imageLoad} onError={this.imageError}></ImagePad>
                 </div>
                 <div className="weui_tabbar">
                     <a className="weui_tabbar_item" onClick={this.buttonClick.bind(this, 0)}>

@@ -53,6 +53,15 @@ var Node = React.createClass({
         //post image level
         var self = this;
 
+        if(self.state.imageId != "0001"){
+            var stay = Date.now() - self.imageLoadTime;
+            $.post(
+                "/stat/image/" + self.state.imageId
+                , {prefer : prefer, stay : stay, type : "audit"}
+                , function (){}
+            );
+        }
+
         self.props.imagePicker.judgeImage(self.state.imageId, level, function(err, result){
             if(err){
                 alert("评价失败");
@@ -93,6 +102,7 @@ var Node = React.createClass({
 
     imageOnLoad : function(){
         $.hideLoading();
+        this.imageLoadTime = Date.now();
     },
 
     imageOnError : function(){
