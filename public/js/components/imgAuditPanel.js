@@ -78,13 +78,17 @@ var Node = React.createClass({
 
     imageClick : function(){
         var self = this;
-        var actions = auditOptions.map(function(auditOption){
-            return {
-                text : auditOption.label,
-                onClick : self.setImageLevel.bind(self, auditOption.level)
-            }
-        });
-        $.actions({actions : actions});
+        if(self.statate.imageId == "0001"){
+            self.getImage;
+        }else{
+            var actions = auditOptions.map(function(auditOption){
+                return {
+                    text : auditOption.label,
+                    onClick : self.setImageLevel.bind(self, auditOption.level)
+                }
+            });
+            $.actions({actions : actions});
+        }
     },
 
     imageOnLoad : function(){
