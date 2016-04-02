@@ -78,4 +78,10 @@ router.post("/help", function(req, res, next){
     );
 });
 
+router.get("/my", function(req, res){
+    return res.render("admin-my", {
+       title : "=我的情报="
+    });
+});
+
 module.exports = router;

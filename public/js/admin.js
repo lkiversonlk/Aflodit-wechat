@@ -20,6 +20,14 @@ reactDOM.render(
                 图片审核
             </p>
         </a>
+        <a href="/admin/my" className="weui_grid js_grid" data-id="audit">
+            <div className="weui_grid_icon">
+                <img src="/images/icon_nav_cell.png"/>
+            </div>
+            <p className="weui_grid_label">
+                我的级别
+            </p>
+        </a>
         <a href="/admin/help" className="weui_grid js_grid" data-id="audit">
             <div className="weui_grid_icon">
                 <img src="/images/icon_nav_dialog.png"/>
