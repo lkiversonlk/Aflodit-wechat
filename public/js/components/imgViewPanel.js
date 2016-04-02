@@ -37,11 +37,11 @@ var Node = React.createClass({
     },
 
     getInitialState : function(){
-        return {imageId : null};
+        return {imageId : "0000"};
     },
 
     componentDidMount : function(){
-        this.getImage();
+        //this.getImage();
     },
 
     imageClick : function(){
