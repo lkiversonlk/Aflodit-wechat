@@ -51,7 +51,37 @@ var Node = React.createClass({
 
     render : function(){
         return (
-            <ImagePad image={this.imgPath()} imageClick={this.imageClick}></ImagePad>
+            <div className="weui_tab">
+                <div className="weui_tab_bd">
+                    <ImagePad image={this.imgPath()} imageClick={this.imageClick}></ImagePad>
+                </div>
+                <div className="weui_tabbar">
+                    <a className="weui_tabbar_item">
+                        <div className="weui_tabbar_icon">
+                            <img src="/images/icon_nav_noti.png" />
+                        </div>
+                        <p className="weui_tabbar_label">
+                            差劲
+                        </p>
+                    </a>
+                    <a className="weui_tabbar_item">
+                        <div className="weui_tabbar_icon">
+                            <img src="/images/icon_nav_button.png" />
+                        </div>
+                        <p className="weui_tabbar_label">
+                            一般
+                        </p>
+                    </a>
+                    <a className="weui_tabbar_item">
+                        <div className="weui_tabbar_icon">
+                            <img src="/images/icon_nav_msg.png" />
+                        </div>
+                        <p className="weui_tabbar_label">
+                            好棒
+                        </p>
+                    </a>
+                </div>
+            </div>
         );
     }
 });
