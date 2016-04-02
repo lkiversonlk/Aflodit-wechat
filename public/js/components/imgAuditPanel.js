@@ -78,7 +78,7 @@ var Node = React.createClass({
 
     imageClick : function(){
         var self = this;
-        if(self.statate.imageId == "0001"){
+        if(self.state.imageId == "0001"){
             self.getImage();
         }else{
             var actions = auditOptions.map(function(auditOption){
