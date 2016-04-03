@@ -5,9 +5,11 @@
 var image = require("./image");
 var user = require("./user");
 var comment = require("./comment");
+var stat = require("./stat");
 
 module.exports = {
     user : user,
     image : image,
-    comment : comment
+    comment : comment,
+    stat : stat
 };
