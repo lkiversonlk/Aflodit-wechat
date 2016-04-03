@@ -57,7 +57,7 @@ var Node = React.createClass({
             var stay = Date.now() - self.imageLoadTime;
             $.post(
                 "/stat/image/" + self.state.imageId
-                , {prefer : prefer, stay : stay, type : "audit"}
+                , {prefer : level, stay : stay, type : "audit"}
                 , function (){}
             );
         }
