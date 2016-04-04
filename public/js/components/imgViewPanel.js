@@ -84,21 +84,13 @@ var Node = React.createClass({
                 <div className="weui_tabbar">
                     <a className="weui_tabbar_item" onClick={this.buttonClick.bind(this, 0)}>
                         <div className="weui_tabbar_icon">
-                            <img src="/images/icon_nav_noti.png" />
-                        </div>
-                        <p className="weui_tabbar_label">
-                            差劲
-                        </p>
-                    </a>
-                    <a className="weui_tabbar_item" onClick={this.buttonClick.bind(this, 0)}>
-                        <div className="weui_tabbar_icon">
                             <img src="/images/icon_nav_button.png" />
                         </div>
                         <p className="weui_tabbar_label">
                             一般
                         </p>
                     </a>
-                    <a className="weui_tabbar_item" onClick={this.buttonClick.bind(this, 0)}>
+                    <a className="weui_tabbar_item" onClick={this.buttonClick.bind(this, 1)}>
                         <div className="weui_tabbar_icon">
                             <img src="/images/icon_nav_msg.png" />
                         </div>
