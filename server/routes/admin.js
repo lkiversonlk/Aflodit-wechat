@@ -3,17 +3,18 @@
  */
 var express = require('express');
 var router = express.Router();
+
 var openId = require("../middlewares/openId");
+var userInfo = require("../middlewares/userInfo");
 
 var Dao = require("../dao");
 var dao = new Dao();
 
-router.use(openId);
-
-router.get('/', function(req, res, next) {
+router.get('/', openId, userInfo, function(req, res, next) {
     res.render('admin',
         {
-            title: '=个人面板='
+            title: '=个人面板=',
+            user: req.user.userId
         }
     );
 });

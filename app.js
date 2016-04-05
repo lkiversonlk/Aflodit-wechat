@@ -31,7 +31,7 @@ try{
     mongoose.connect(conf.database.url);
     var client = new wechatOauth(conf.app.id, conf.app.secret);
     app.set("wechat-oauth", client);
-    //console.log(client.getAuthorizeURL("http://www.ripplemaster.cn:3001/", "", "snsapi_base"));
+    //console.log(client.getAuthorizeURL("http://www.ripplemaster.cn:3001/admin", "", "snsapi_base"));
     if(conf.app.log){
         logger.setLogLevel(conf.app.log);
     }
@@ -66,8 +66,9 @@ app.use(session({
 app.use("/cr", cr, present.present);
 app.use("/stat", stat, present.present);
 
-app.use('/', routes, present.present);
 app.use("/admin", admin, present.present);
+app.use('/', routes, present.present);
+
 
 app.use(present.presentError);
 
