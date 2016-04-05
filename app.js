@@ -63,13 +63,12 @@ app.use(session({
     secret : "aflodit secret"
 }));
 
-app.use('/', routes);
-app.use("/admin", admin);
-app.use("/cr", cr);
-app.use('/wechat', wechat);
-app.use("/stat", stat);
+app.use("/cr", cr, present.present);
+app.use("/stat", present.present);
 
-app.use(present.present);
+app.use('/', routes, present.present);
+app.use("/admin", admin, present.present);
+
 app.use(present.presentError);
 
 // catch 404 and forward to error handler
