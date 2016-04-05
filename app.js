@@ -32,6 +32,9 @@ try{
     var client = new wechatOauth(conf.app.id, conf.app.secret);
     app.set("wechat-oauth", client);
     //console.log(client.getAuthorizeURL("http://www.ripplemaster.cn:3001/", "", "snsapi_base"));
+    if(conf.app.log){
+        logger.setLogLevel(conf.app.log);
+    }
 }catch(error){
     logger.log("error", "configuration load error " + error.message);
     process.exit(-1);
