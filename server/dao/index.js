@@ -55,4 +55,8 @@ Dao.prototype.nextRandomImage = function(callback){
     })
 };
 
+Dao.prototype.find = function(model, query, callback){
+    models[model].find(query, callback);
+};
+
 module.exports = Dao;
