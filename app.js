@@ -29,7 +29,9 @@ try{
     app.set("wechat-oauth", new wechatOauth(conf.app.id, conf.app.secret));
     app.set("picStream", new PicStream(conf.file.image));
     mongoose.connect(conf.database.url);
-    //console.log(client.getAuthorizeURL("http://www.ripplemaster.cn:3000/", "", "snsapi_base"));
+    var client = new wechatOauth(conf.app.id, conf.app.secret);
+    app.set("wechat-oauth", client);
+    //console.log(client.getAuthorizeURL("http://www.ripplemaster.cn:3001/", "", "snsapi_base"));
 }catch(error){
     logger.log("error", "configuration load error " + error.message);
     process.exit(-1);

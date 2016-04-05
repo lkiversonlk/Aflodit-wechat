@@ -8,7 +8,7 @@ var openId = require("../middlewares/openId");
 var Dao = require("../dao");
 var dao = new Dao();
 
-//router.use(openId);
+router.use(openId);
 
 router.get('/', function(req, res, next) {
     res.render('admin',

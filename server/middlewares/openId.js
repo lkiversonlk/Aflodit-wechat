@@ -7,6 +7,7 @@ var logger = require("../log").getLogger("middlewares.openId");
 function openId(req, res, next){
     if(req.session.openid){
         //has openid already, no needs to fetch openid
+        logger.log("debug", "user " + req.session.openid + " logged in");
         return next();
     }else if(req.query.code){
         var client = req.app.get("wechat-oauth");
@@ -16,6 +17,7 @@ function openId(req, res, next){
                 return next(SsiErrors.ServerError());
             }else{
                 req.session.openid = result.data.openid;
+                logger.log("debug", "user " + req.session.openid + " logged in");
                 return next();
             }
         });
