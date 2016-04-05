@@ -13,10 +13,11 @@ Logger.prototype.log = function(level, msg){
     winston.log(level, msg);
 };
 
+Logger.prototype.setLogLevel = function(level){
+    winston.level = level;
+};
+
 module.exports.getLogger = function(module){
     return new Logger(module)
 };
 
-module.exports.setLogLevel = function(level){
-    winston.level = level;
-}
