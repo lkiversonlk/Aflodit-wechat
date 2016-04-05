@@ -16,7 +16,7 @@ router.post("/image/:id", function(req, res, next){
     dao.create(
         "stat",
         {
-            user : "unknown",
+            user : req.body.user,
             time : Date.now(),
             stay : req.body.stay,
             prefer : req.body.prefer,

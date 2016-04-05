@@ -64,7 +64,7 @@ app.use(session({
 }));
 
 app.use("/cr", cr, present.present);
-app.use("/stat", present.present);
+app.use("/stat", stat, present.present);
 
 app.use('/', routes, present.present);
 app.use("/admin", admin, present.present);
