@@ -19,7 +19,7 @@ router.post("/image/:id", function(req, res, next){
             user : req.body.user,
             time : Date.now(),
             stay : req.body.stay,
-            prefer : req.body.prefer,
+            //prefer : req.body.prefer,
             type : req.body.type,
             image : req.params.id
         },
