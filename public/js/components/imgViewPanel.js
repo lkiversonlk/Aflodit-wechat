@@ -6,7 +6,7 @@ var ImagePad = require("./imagePad");
 
 var Node = React.createClass({
     getImage : function(){
-        $.showLoading("搜寻情报中...");
+        $.showLoading("点击图片切换下一张哦");
 
         var self = this;
         self.props.imagePicker.getImageId(function(err, result){
