@@ -39,16 +39,26 @@ var Node = React.createClass({
     },
 
     getInitialState : function(){
-        return {imageId : "0000"};
+        return {imageId : null};
     },
 
     componentDidMount : function(){
-        //this.getImage();
+        this.getImage();
     },
 
     imageClick : function(){
-        //var self = this;
-        //self.getImage();
+        var self = this;
+        var stay = Date.now() - self.imageLoadTime;
+        $.post(
+            "/stat/image/" + self.state.imageId
+            , {
+                stay : stay,
+                type : "view",
+                user : userId
+            }
+            , function (){}
+        );
+        self.getImage();
     },
 
     imageLoad : function(){
@@ -85,24 +95,6 @@ var Node = React.createClass({
             <div className="weui_tab">
                 <div className="weui_tab_bd">
                     <ImagePad image={this.imgPath()} imageClick={this.imageClick} onLoad={this.imageLoad} onError={this.imageError}></ImagePad>
-                </div>
-                <div className="weui_tabbar">
-                    <a className="weui_tabbar_item" onClick={this.buttonClick.bind(this, 0)}>
-                        <div className="weui_tabbar_icon">
-                            <img src="/images/icon_nav_button.png" />
-                        </div>
-                        <p className="weui_tabbar_label">
-                            一般
-                        </p>
-                    </a>
-                    <a className="weui_tabbar_item" onClick={this.buttonClick.bind(this, 1)}>
-                        <div className="weui_tabbar_icon">
-                            <img src="/images/icon_nav_msg.png" />
-                        </div>
-                        <p className="weui_tabbar_label">
-                            好棒
-                        </p>
-                    </a>
                 </div>
             </div>
         );

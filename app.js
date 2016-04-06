@@ -31,7 +31,8 @@ try{
     mongoose.connect(conf.database.url);
     var client = new wechatOauth(conf.app.id, conf.app.secret);
     app.set("wechat-oauth", client);
-    //console.log(client.getAuthorizeURL("http://www.ripplemaster.cn:3001/admin", "", "snsapi_base"));
+    //console.log(client.getAuthorizeURL("http://www.ripplemaster.cn:3001", "", "snsapi_base"));
+    //https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9e45a7897c3295e6&redirect_uri=http%3A%2F%2Fwww.ripplemaster.cn%3A3001&response_type=code&scope=snsapi_base&state=#wechat_redirect
     if(conf.app.log){
         logger.setLogLevel(conf.app.log);
     }

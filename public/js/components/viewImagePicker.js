@@ -17,6 +17,9 @@ Picker.prototype.getImageId = function(callback){
 };
 
 Picker.prototype.getImagePath = function(imageId){
+    if(imageId == null){
+        return "";
+    }
     return "/cr/pic/" + imageId;
 };
 
