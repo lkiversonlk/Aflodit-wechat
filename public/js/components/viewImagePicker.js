@@ -7,7 +7,7 @@ function Picker(){
 };
 
 Picker.prototype.getImageId = function(callback){
-    this.request = $.get("/image/random", function(result){
+    this.request = $.get("/bid/" + userId, function(result){
         if(result.code == 0){
             return callback(null, result.data);
         }else{

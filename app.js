@@ -15,6 +15,7 @@ var wechat = require("./server/routes/wechat");
 var cr = require("./server/routes/cr");
 var admin = require("./server/routes/admin");
 var stat = require("./server/routes/stat");
+var bid = require("./server/routes/bid");
 
 var SsiErros = require("./server/errors");
 var logger = require("./server/log").getLogger("app");
@@ -65,9 +66,13 @@ app.use(session({
 }));
 
 app.use("/cr", cr, present.present);
+
 app.use("/stat", stat, present.present);
 
+app.use("/bid", bid, present.present);
+
 app.use("/admin", admin, present.present);
+
 app.use('/', routes, present.present);
 
 
